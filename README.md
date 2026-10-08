@@ -4,8 +4,6 @@
 
 I'm **Abhishek Kumar**, a **Systems Architect at Pega Systems India**, based in Bengaluru. I build Java and Spring Boot projects around APIs, background jobs, and **what happens when something fails**.
 
-[![Explore the build](assets/explore-build-midnight.svg)](docs/api-ingestion-service.md) [![See the architecture](assets/architecture-midnight.svg)](docs/api-ingestion-service.md#architecture) [![Email me](assets/email-midnight.svg)](mailto:abhiiyyywork7@gmail.com)
-
 <details>
 <summary><strong>Got 30 seconds? Start here.</strong></summary>
 
@@ -28,6 +26,8 @@ Open a project to explore its features, architecture, verification, and design d
 A Spring Boot service that imports and normalizes product data, runs background jobs, and exposes import progress through a dashboard.
 
 **Stack:** Java 21 · Spring Boot · PostgreSQL · Kafka · Redis · Docker
+
+[![Explore the API ingestion build](assets/explore-build-midnight.svg)](docs/api-ingestion-service.md) [![API ingestion architecture](assets/architecture-midnight.svg)](#api-ingestion-architecture)
 
 [Architecture](#api-ingestion-architecture) · [Verification](#api-ingestion-verification) · [Design decisions](#api-ingestion-design-decisions)
 
@@ -76,6 +76,8 @@ An earlier full-stack CRUD project for creating, viewing, updating, and deleting
 
 **Stack:** React · Java 8 · Spring Boot 2.3 · Spring Data JPA · MySQL
 
+[![Explore the Employee Management build](assets/explore-build-midnight.svg)](docs/employee-management.md) [![Employee Management architecture](assets/architecture-midnight.svg)](#employee-management-architecture)
+
 [Architecture](#employee-management-architecture) · [Verification and boundaries](#employee-management-verification-and-boundaries)
 
 ### Employee Management architecture
@@ -109,21 +111,13 @@ This is an earlier CRUD project using Java 8 and Spring Boot 2.3. It demonstrate
 
 ## My toolkit
 
-### <img src="assets/toolkit-languages-midnight.svg" width="22" height="22" alt=""> Languages
+![Languages: Java 21, Python](assets/toolkit-languages-pixel.svg)
 
-Java 21 · Python
+![Backend: Spring Boot, Spring Security, REST APIs, Spring Data JPA](assets/toolkit-backend-pixel.svg)
 
-### <img src="assets/toolkit-backend-midnight.svg" width="22" height="22" alt=""> Backend
+![Data and messaging: PostgreSQL, Flyway, Kafka, Redis](assets/toolkit-data-pixel.svg)
 
-Spring Boot · Spring Security · REST APIs · Spring Data JPA
-
-### <img src="assets/toolkit-data-midnight.svg" width="22" height="22" alt=""> Data & messaging
-
-PostgreSQL · Flyway · Kafka · Redis
-
-### <img src="assets/toolkit-testing-midnight.svg" width="22" height="22" alt=""> Testing & delivery
-
-JUnit · Testcontainers · Docker · Docker Compose · GitHub Actions
+![Testing and delivery: JUnit, Testcontainers, Docker, Docker Compose, GitHub Actions](assets/toolkit-delivery-pixel.svg)
 
 <details>
 <summary><strong>Next on my build list</strong></summary>
@@ -134,5 +128,8 @@ Production identity and TLS, distributed worker coordination, request budgets, r
 
 ## Send a hello
 
-Interested in Java / Spring Boot backend work, APIs, or reliable data pipelines?  
+Interested in Java / Spring Boot backend work, APIs, or reliable data pipelines?
+
+[![Send a hello](assets/send-hello-midnight.svg)](mailto:abhiiyyywork7@gmail.com)
+
 **[abhiiyyywork7@gmail.com](mailto:abhiiyyywork7@gmail.com)**
