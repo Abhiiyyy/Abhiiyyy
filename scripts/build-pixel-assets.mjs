@@ -49,8 +49,8 @@ function pixelText(value,x,y,scale,color=palette.white) {
   });
   return `<path d="${d}" fill="${color}" shape-rendering="crispEdges"/>`;
 }
-function text(value,x,y,size=20,color=palette.muted,extra='') {
-  return `<text x="${x}" y="${y}" fill="${color}" font-family="Courier New, monospace" font-size="${size}" ${extra}>${escape(value)}</text>`;
+function text(value,x,y,size=20,color=palette.muted,extra='',family='Courier New, monospace') {
+  return `<text x="${x}" y="${y}" fill="${color}" font-family="${family}" font-size="${size}" ${extra}>${escape(value)}</text>`;
 }
 function svg(width,height,title,description,body) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="title desc"><title id="title">${escape(title)}</title><desc id="desc">${escape(description)}</desc>${body}</svg>\n`;
@@ -89,5 +89,12 @@ await writeFile(new URL('pixel-toolkit-compact-midnight.svg',assets),svg(600,232
 for (const [file,label,width] of [['explore-build.svg','EXPLORE BUILD',224],['architecture.svg','ARCHITECTURE',212],['email.svg','EMAIL ME',152]]) {
   const body=`<rect x="3" y="3" width="${width-3}" height="39" fill="#091020"/><rect x="1" y="1" width="${width-5}" height="36" fill="${palette.bg}" stroke="${palette.accent}" stroke-width="2"/>${pixelText(label,14,11,2,palette.accent)}${pixelText('>',width-27,11,2,palette.accent)}`;
   await writeFile(new URL(file.replace('.svg','-midnight.svg'),assets),svg(width,43,label,label,body));
+}
+for (const [file,number,name,category] of [
+  ['project-api-midnight.svg','01','API ingestion service','JAVA / BACKEND'],
+  ['project-employees-midnight.svg','02','Employee Management','FULL STACK / CRUD'],
+]) {
+  const body=`<rect width="640" height="106" fill="${palette.panel}"/><path d="M1 105V1H639V105Z" fill="none" stroke="${palette.border}" stroke-width="2"/><rect x="0" y="0" width="6" height="106" fill="${palette.accent}"/>${text(number,23,59,28,palette.accent,'font-weight="700"')}${text(name,88,46,36,palette.white,'font-weight="700"','Segoe UI, Arial, sans-serif')}${text(category,88,81,22,palette.muted)}`;
+  await writeFile(new URL(file,assets),svg(640,106,`${number} · ${name} — ${category}`,`Expand or collapse the ${name} project.`,body));
 }
 console.log(`Built Pixel Workshop assets in ${fileURLToPath(assets)}`);

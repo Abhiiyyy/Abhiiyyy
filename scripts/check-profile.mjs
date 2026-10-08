@@ -49,8 +49,11 @@ for (const file of markdown) {
     const age = (Date.now() - date.getTime()) / 86400000;
     if (!Number.isFinite(age) || age > 90 || age < -2) failures.push(`${label}: review date is invalid, future-dated, or over 90 days old`);
   }
-  for (const match of body(text).matchAll(/!?\[[^\]]*\]\(([^\s)]+)\)/g)) {
-    const target = match[1];
+  const targets = [
+    ...Array.from(body(text).matchAll(/!?\[[^\]]*\]\(([^\s)]+)\)/g), match => match[1]),
+    ...Array.from(body(text).matchAll(/<img\b[^>]*\bsrc=["']([^"']+)["']/gi), match => match[1]),
+  ];
+  for (const target of targets) {
     if (/^https:\/\//.test(target)) { destinations.add(target); continue; }
     if (/^mailto:/i.test(target)) {
       if (!/^mailto:[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(target)) failures.push(`${label}: invalid email link: ${target}`);
