@@ -36,7 +36,7 @@ The source repository is private; the public case study is available without rep
 
 ## My toolkit
 
-![Java 21, Spring Boot, PostgreSQL, Kafka, Redis, and Docker](assets/pixel-toolkit.svg)
+![Java 21, Spring Boot, PostgreSQL, Kafka, Redis, and Docker](assets/pixel-toolkit-compact.svg)
 
 **Also in the toolbox:** Python · Spring Security · Spring Data JPA · Flyway · JUnit · Testcontainers · Docker Compose · GitHub Actions
 

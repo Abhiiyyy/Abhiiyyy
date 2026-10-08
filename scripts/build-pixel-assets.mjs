@@ -84,7 +84,7 @@ technologies.forEach(([mark,label],i)=>{
   strip+=pixelText(mark,x+32,y+26,4,palette.accent);
   strip+=text(label,x+77,y+51,32,palette.white);
 });
-await writeFile(new URL('pixel-toolkit.svg',assets),svg(600,232,'Java 21, Spring Boot, PostgreSQL, Kafka, Redis, Docker','Primary project technologies, with custom pixel letter marks.',strip));
+await writeFile(new URL('pixel-toolkit-compact.svg',assets),svg(600,232,'Java 21, Spring Boot, PostgreSQL, Kafka, Redis, Docker','Primary project technologies, with custom pixel letter marks.',strip));
 
 for (const [file,label,width] of [['explore-build.svg','EXPLORE BUILD',224],['architecture.svg','ARCHITECTURE',212],['email.svg','EMAIL ME',152]]) {
   const body=`<rect x="3" y="3" width="${width-3}" height="39" fill="#0a1c15"/><rect x="1" y="1" width="${width-5}" height="36" fill="${palette.bg}" stroke="${palette.accent}" stroke-width="2"/>${pixelText(label,14,11,2,palette.accent)}${pixelText('>',width-27,11,2,palette.accent)}`;
