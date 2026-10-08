@@ -52,6 +52,10 @@ for (const file of markdown) {
   for (const match of body(text).matchAll(/!?\[[^\]]*\]\(([^\s)]+)\)/g)) {
     const target = match[1];
     if (/^https:\/\//.test(target)) { destinations.add(target); continue; }
+    if (/^mailto:/i.test(target)) {
+      if (!/^mailto:[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(target)) failures.push(`${label}: invalid email link: ${target}`);
+      continue;
+    }
     if (/^[a-z][a-z0-9+.-]*:/i.test(target)) { failures.push(`${label}: unsupported link scheme`); continue; }
     const [relative, fragment] = target.split('#');
     const resolved = relative ? path.resolve(path.dirname(file), decodeURIComponent(relative)) : file;

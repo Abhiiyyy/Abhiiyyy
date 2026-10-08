@@ -1,55 +1,58 @@
 ![Abhishek Kumar — Java and Spring Boot backend engineering](assets/header.svg)
 
-# Hi, I'm Abhishek Kumar
+# Backends with the failure paths in mind.
 
-**Systems Architect at Pega Systems India · Java & Spring Boot · Bengaluru, India**
+I'm **Abhishek Kumar**, a Systems Architect at **Pega Systems India**, based in Bengaluru. I build Java and Spring Boot projects around APIs, background jobs, and the question that makes backend work interesting: **what happens when something fails?**
 
-I focus on backend engineering: APIs, data ingestion, and the reliability work that keeps a service understandable when something fails.
+**Java & Spring Boot · APIs & data ingestion · Reliability & observability**
 
-[Project walkthrough](docs/api-ingestion-service.md) · [Technical overview](docs/api-ingestion-service.md#architecture) · [GitHub profile](https://github.com/Abhiiyyy)
+[Explore my work →](docs/api-ingestion-service.md) · [See the architecture](docs/api-ingestion-service.md#architecture) · [Email me](mailto:abhiiyyywork7@gmail.com)
 
 <details>
-<summary><strong>The 30-second overview</strong></summary>
+<summary><strong>Got 30 seconds? Start here.</strong></summary>
 
-- **Direction:** Java / Spring Boot backend roles, building on my enterprise application experience.
-- **Featured work:** a personal API ingestion service with background jobs, retries, request idempotency, scheduling, and an operations dashboard.
-- **Engineering depth:** PostgreSQL persistence, transactional Kafka delivery, Redis caching, Docker, and automated verification.
-- **Start here:** the [project walkthrough](docs/api-ingestion-service.md) explains the problem, design decisions, verification, and current boundaries.
+- **My focus:** Java / Spring Boot backend roles, building on enterprise application experience.
+- **My featured build:** an API ingestion service with persisted jobs, retries, request idempotency, scheduling, and an operations dashboard.
+- **Under the hood:** PostgreSQL, a transactional Kafka outbox, Redis, Docker, and automated verification.
+- **Want the reasoning?** The [case study](docs/api-ingestion-service.md) covers design decisions, verification, tradeoffs, and current limits.
 
 </details>
 
-## Featured project
+## Featured build · API ingestion service
 
-### API ingestion service
+**Two external APIs. One consistent product catalog. Visibility into every import.**
 
-A Spring Boot service that imports product data from two external APIs, normalizes it, and stores it for paginated reads. Its dashboard makes import progress, retry waits, saved jobs, event delivery, and cache behavior visible.
+A Spring Boot service that imports and normalizes product data for paginated reads. Its dashboard shows job progress, retry waits, event delivery, and cache behavior.
 
-#### Feature highlights
+### Feature highlights
 
-- **Resilient imports:** bounded retries, exponential backoff with jitter, and `Retry-After` handling.
-- **Idempotent submissions:** user-scoped keys recover the original job on a retry and detect conflicting settings.
-- **Reliable event delivery:** a transactional Kafka outbox retains events for delivery retries.
-- **Graceful cache fallback:** catalog reads fall back to PostgreSQL when Redis is unavailable.
-- **Persistent products and job history:** PostgreSQL storage survives restarts, verified through Docker container recreation.
+- **Retry with a plan.** Bounded retries, exponential backoff with jitter, and `Retry-After` handling when an upstream API fails or rate-limits requests.
+- **Repeat requests, one job.** User-scoped idempotency keys recover the original job on a retry; changed settings with the same key return a conflict.
+- **Keep events for later.** A transactional Kafka outbox persists events for delivery retries, with idempotent handling of repeated deliveries.
+- **Cache down? Keep reading.** Catalog reads fall back to PostgreSQL when Redis is unavailable.
+- **Restart without starting over.** PostgreSQL retains products and job history, verified through Docker container recreation.
 
 **Stack:** Java 21 · Spring Boot · Spring Security · Spring Data JPA · PostgreSQL · Flyway · Kafka · Redis · Docker · JUnit · Testcontainers
 
-**[Read the case study →](docs/api-ingestion-service.md)**
+**[Go inside the build →](docs/api-ingestion-service.md)**
 
-The source repository is currently private. This public walkthrough explains the project without requiring repository access or a running demo.
+The source repository is private; the public case study is available without repository access or a running demo.
 
-## Working toolkit
+## Tools I work with
 
-| Area | Technologies |
-| --- | --- |
-| Languages | Java, Python |
-| Backend | Spring Boot, Spring Security, REST APIs, Spring Data JPA |
-| Data & messaging | PostgreSQL, Flyway, Kafka, Redis |
-| Verification & delivery | JUnit, Testcontainers, Docker Compose, GitHub Actions |
+**Languages:** Java, Python  
+**Backend:** Spring Boot, Spring Security, REST APIs, Spring Data JPA  
+**Data & messaging:** PostgreSQL, Flyway, Kafka, Redis  
+**Testing & delivery:** JUnit, Testcontainers, Docker Compose, GitHub Actions
 
 <details>
-<summary><strong>What I'm developing next</strong></summary>
+<summary><strong>Next on my build list</strong></summary>
 
-My backend project roadmap includes production identity and TLS, distributed worker coordination, request budgets, record retention, and dead-letter replay. These are future work rather than claims of completed features.
+Production identity and TLS, distributed worker coordination, request budgets, record retention, and dead-letter replay. These are planned improvements to the project.
 
 </details>
+
+## Let's connect
+
+Interested in Java / Spring Boot backend work, APIs, or reliable data pipelines?  
+**[abhiiyyywork7@gmail.com](mailto:abhiiyyywork7@gmail.com)**

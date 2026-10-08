@@ -15,7 +15,7 @@ node scripts/check-profile.mjs
 node scripts/check-profile.mjs --offline
 ```
 
-The offline option checks local files and anchors but skips public network checks.
+The offline option checks local files and anchors but skips public network checks. Plain `mailto:` links receive a format check only; the workflow does not send email or verify that an inbox exists.
 
 ## Maintenance routine
 
