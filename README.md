@@ -109,9 +109,21 @@ This is an earlier CRUD project using Java 8 and Spring Boot 2.3. It demonstrate
 
 ## My toolkit
 
-![Java 21, Spring Boot, PostgreSQL, Kafka, Redis, and Docker](assets/pixel-toolkit-compact-midnight.svg)
+### <img src="assets/toolkit-languages-midnight.svg" width="22" height="22" alt=""> Languages
 
-**Also in the toolbox:** Python · Spring Security · Spring Data JPA · Flyway · JUnit · Testcontainers · Docker Compose · GitHub Actions
+Java 21 · Python
+
+### <img src="assets/toolkit-backend-midnight.svg" width="22" height="22" alt=""> Backend
+
+Spring Boot · Spring Security · REST APIs · Spring Data JPA
+
+### <img src="assets/toolkit-data-midnight.svg" width="22" height="22" alt=""> Data & messaging
+
+PostgreSQL · Flyway · Kafka · Redis
+
+### <img src="assets/toolkit-testing-midnight.svg" width="22" height="22" alt=""> Testing & delivery
+
+JUnit · Testcontainers · Docker · Docker Compose · GitHub Actions
 
 <details>
 <summary><strong>Next on my build list</strong></summary>

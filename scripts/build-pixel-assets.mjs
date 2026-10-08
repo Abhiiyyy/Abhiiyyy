@@ -75,17 +75,6 @@ banner += packet('962 207;962 207;962 207;975 207;988 207;1001 207;1014 207;962 
 banner += [ [651,58],[1138,58],[1148,142],[638,288] ].map(([x,y])=>`<path d="M${x-5} ${y}h15M${x} ${y-5}v15" stroke="${palette.border}" stroke-width="3"/>`).join('');
 await writeFile(new URL('pixel-workshop-midnight.svg',assets),svg(1200,372,'Abhishek Kumar — Build. Retry. Keep going.','Java and Spring Boot backend engineering. Pixel server racks illustrate APIs, workers, and persisted data. Slow moving packets are decorative.',banner));
 
-const technologies = [ ['J','Java 21'],['S','Spring Boot'],['P','PostgreSQL'],['K','Kafka'],['R','Redis'],['D','Docker'] ];
-let strip=`<rect width="600" height="232" fill="${palette.bg}"/>`;
-technologies.forEach(([mark,label],i)=>{
-  const x=(i%2)*300;
-  const y=Math.floor(i/2)*74;
-  strip+=`<path d="M${x+22} ${y+20}h40v40h-40z" fill="${palette.panel}" stroke="${palette.border}" stroke-width="2"/>`;
-  strip+=pixelText(mark,x+32,y+26,4,palette.accent);
-  strip+=text(label,x+77,y+51,32,palette.white);
-});
-await writeFile(new URL('pixel-toolkit-compact-midnight.svg',assets),svg(600,232,'Java 21, Spring Boot, PostgreSQL, Kafka, Redis, Docker','Primary project technologies, with custom pixel letter marks.',strip));
-
 for (const [file,label,width] of [['explore-build.svg','EXPLORE BUILD',224],['architecture.svg','ARCHITECTURE',212],['email.svg','EMAIL ME',152]]) {
   const body=`<rect x="3" y="3" width="${width-3}" height="39" fill="#091020"/><rect x="1" y="1" width="${width-5}" height="36" fill="${palette.bg}" stroke="${palette.accent}" stroke-width="2"/>${pixelText(label,14,11,2,palette.accent)}${pixelText('>',width-27,11,2,palette.accent)}`;
   await writeFile(new URL(file.replace('.svg','-midnight.svg'),assets),svg(width,43,label,label,body));

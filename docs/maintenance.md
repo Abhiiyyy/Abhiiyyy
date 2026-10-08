@@ -29,7 +29,7 @@ The offline option checks local files and anchors but skips public network check
 
 Network checks can fail temporarily due to outages or rate limits; rerun before editing a working link. GitHub can disable scheduled workflows in public repositories after 60 days without repository activity. Check Actions when returning after a long break and re-enable the schedule if needed. GitHub notification settings control whether workflow failures reach you.
 
-The Pixel Workshop banner, toolkit strip, link badges, and walkthrough live in this repository. The banner uses a slow, decorative SVG animation with static labels and racks. Reduced-motion preferences hide the moving packets and leave the still frame readable. The animation illustrates backend components; it is not live system status. No external animation or statistics service is required.
+The Pixel Workshop banner, toolkit category icons, link badges, and walkthrough live in this repository. The banner uses a slow, decorative SVG animation with static labels and racks. Reduced-motion preferences hide the moving packets and leave the still frame readable. The animation illustrates backend components; it is not live system status. No external animation or statistics service is required.
 
 To change the pixel art, edit the text, palette, or geometry in `scripts/build-pixel-assets.mjs`, then rebuild with:
 
@@ -39,3 +39,5 @@ node scripts/check-profile.mjs --offline
 ```
 
 Commit both the generator and regenerated assets. Keep the plain-text introduction, project links, technology image descriptions, and email address readable when images are unavailable. Check the live profile in light and dark mode and at a narrow mobile width after visual changes.
+
+The grouped toolkit labels are ordinary Markdown in `README.md`. Its four decorative category icons are stored locally; their [Lucide license](../assets/LICENSE-lucide.txt) is included with the assets. Edit toolkit labels in the README; the pixel asset generator rebuilds the banner and link badges.
