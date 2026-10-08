@@ -1,10 +1,10 @@
-![Abhishek Kumar — Build. Retry. Keep going. Java and Spring Boot backend engineering.](assets/pixel-workshop.svg)
+![Abhishek Kumar — Build. Retry. Keep going. Java and Spring Boot backend engineering.](assets/pixel-workshop-midnight.svg)
 
 # Build. Retry. Keep going.
 
 I'm **Abhishek Kumar**, a **Systems Architect at Pega Systems India**, based in Bengaluru. I build Java and Spring Boot projects around APIs, background jobs, and **what happens when something fails**.
 
-[![Explore the build](assets/explore-build.svg)](docs/api-ingestion-service.md) [![See the architecture](assets/architecture.svg)](docs/api-ingestion-service.md#architecture) [![Email me](assets/email.svg)](mailto:abhiiyyywork7@gmail.com)
+[![Explore the build](assets/explore-build-midnight.svg)](docs/api-ingestion-service.md) [![See the architecture](assets/architecture-midnight.svg)](docs/api-ingestion-service.md#architecture) [![Email me](assets/email-midnight.svg)](mailto:abhiiyyywork7@gmail.com)
 
 <details>
 <summary><strong>Got 30 seconds? Start here.</strong></summary>
@@ -109,7 +109,7 @@ This is an earlier CRUD project using Java 8 and Spring Boot 2.3. It demonstrate
 
 ## My toolkit
 
-![Java 21, Spring Boot, PostgreSQL, Kafka, Redis, and Docker](assets/pixel-toolkit-compact.svg)
+![Java 21, Spring Boot, PostgreSQL, Kafka, Redis, and Docker](assets/pixel-toolkit-compact-midnight.svg)
 
 **Also in the toolbox:** Python · Spring Security · Spring Data JPA · Flyway · JUnit · Testcontainers · Docker Compose · GitHub Actions
 
