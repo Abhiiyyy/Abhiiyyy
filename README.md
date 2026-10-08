@@ -16,23 +16,96 @@ I'm **Abhishek Kumar**, a **Systems Architect at Pega Systems India**, based in 
 
 </details>
 
-## Current build · API ingestion service
+## Project Showcase
 
-**Two external APIs. One consistent product catalog. Visibility into every import.**
+Open a project to explore its features, architecture, verification, and design decisions.
 
-A Spring Boot service that imports and normalizes product data for paginated reads. Its dashboard shows job progress, retry waits, event delivery, and cache behavior.
+<details open>
+<summary><strong>01 · API ingestion service</strong> — Java / Backend</summary>
+
+**Two external APIs. One consistent product catalog.**
+
+A Spring Boot service that imports and normalizes product data, runs background jobs, and exposes import progress through a dashboard.
+
+**Stack:** Java 21 · Spring Boot · PostgreSQL · Kafka · Redis · Docker
+
+[Architecture](#api-ingestion-architecture) · [Verification](#api-ingestion-verification) · [Design decisions](#api-ingestion-design-decisions)
+
+### API ingestion architecture
+
+```mermaid
+flowchart LR
+  Clients[Dashboard / REST clients] --> App[Spring Boot: imports, jobs, catalog]
+  App --> Sources[DummyJSON / FakeStoreAPI]
+  App --> DB[(PostgreSQL: products, jobs, outbox)]
+  App <--> Cache[(Optional Redis cache)]
+  DB --> Dispatch[Outbox dispatcher]
+  Dispatch --> Kafka[Kafka / idempotent consumer]
+```
+
+The worker fetches source data and persists products and jobs. Catalog reads can use Redis with database fallback; a separate dispatcher retries delivery of persisted outbox events.
 
 ### Feature highlights
 
-- **Repeat requests, one job.** User-scoped idempotency keys recover the original job on a retry; changed settings with the same key return a conflict.
-- **Retry with a plan.** Bounded retries, exponential backoff with jitter, and `Retry-After` handling when upstream APIs fail or rate-limit requests.
-- **Keep events for later.** A transactional Kafka outbox persists events for delivery retries, with idempotent handling of repeated deliveries.
-- **Cache down? Keep reading.** Catalog reads fall back to PostgreSQL when Redis is unavailable.
-- **Restart without starting over.** PostgreSQL retains products and job history, verified through Docker container recreation.
+- **Repeat requests, one job.** User-scoped idempotency keys recover the original job on a retry and detect conflicting settings.
+- **Retry with a plan.** Bounded retries, exponential backoff with jitter, and `Retry-After` handling.
+- **Keep events for later.** A transactional Kafka outbox retains events for delivery retries.
+- **Cache down? Keep reading.** Catalog reads fall back to PostgreSQL.
+- **Restart without starting over.** Products and completed job history survive restarts, verified through Docker container recreation.
 
-**[Go inside the build →](docs/api-ingestion-service.md)** · **[Architecture →](docs/api-ingestion-service.md#architecture)**
+### API ingestion verification
 
-The source repository is private; the public case study is available without repository access or a running demo.
+Backend and PostgreSQL checks, dashboard tests, and Docker-stack persistence checks. The [case study's verification snapshot](docs/api-ingestion-service.md#verification) records the inspected successful run.
+
+### API ingestion design decisions
+
+A bounded worker queue makes overload explicit. The outbox ties event delivery to persisted data, with idempotent handling of repeated deliveries. Redis is optional, so cache failure retains a database read path.
+
+**Current limits:** personal, single-instance setup. Unfinished jobs are marked failed after a restart; production identity, TLS, and distributed worker coordination are planned improvements.
+
+**[Full case study →](docs/api-ingestion-service.md)** · Source repository currently private.
+
+</details>
+
+<details>
+<summary><strong>02 · Employee Management</strong> — Full stack / CRUD</summary>
+
+**A React interface backed by a Spring Boot employee API.**
+
+An earlier full-stack CRUD project for creating, viewing, updating, and deleting employee records.
+
+**Stack:** React · Java 8 · Spring Boot 2.3 · Spring Data JPA · MySQL
+
+[Architecture](#employee-management-architecture) · [Verification and boundaries](#employee-management-verification-and-boundaries)
+
+### Employee Management architecture
+
+```mermaid
+flowchart LR
+  UI[React: employee forms and list] --> Client[Axios service]
+  Client --> API[Spring Boot: employee REST API]
+  API --> JPA[Spring Data JPA repository]
+  JPA --> DB[(MySQL: employees)]
+```
+
+The frontend service calls the employee API. A REST controller handles CRUD requests and delegates persistence to the JPA repository.
+
+### Feature highlights
+
+- **Manage employee records.** Create, list, view, update, and delete through REST endpoints.
+- **Connect interface and backend.** React calls the Spring Boot API through an Axios service.
+- **Persist through JPA.** Employee IDs, names, and email addresses map to database records.
+- **Handle missing records.** Lookup, update, and delete operations return HTTP 404 when the requested employee is absent.
+
+### Employee Management verification and boundaries
+
+The frontend service, REST controller, model, exception, and Maven configuration were reviewed for this showcase. **The application was not rerun for this profile update.**
+
+This is an earlier CRUD project using Java 8 and Spring Boot 2.3. It demonstrates frontend/API/persistence integration; authentication, validation, pagination, and a modernized stack are not claimed.
+
+**[Project walkthrough →](docs/employee-management.md)** · Source repository currently private.
+
+</details>
 
 ## My toolkit
 

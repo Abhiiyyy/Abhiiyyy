@@ -21,7 +21,7 @@ The offline option checks local files and anchors but skips public network check
 
 1. Review the public profile while signed out. Recruiters need usable links without your permissions.
 2. Update project statements when the implementation or your role changes.
-3. Keep one clearly featured project. Add another only when it demonstrates a distinct skill and has a readable walkthrough.
+3. Keep the most relevant project first in Project Showcase. Use one expandable section per distinct project, with an architecture diagram, feature highlights, verification notes, and current limits. Add another only when it demonstrates a distinct skill and has a readable walkthrough.
 4. Add a public LinkedIn, portfolio, resume, or professional email link when you choose to publish it. There are no guessed contact links in this profile.
 5. If you later publish the source, review code and Git history for private material before changing visibility. Then add a public source link and pin that repository.
 
