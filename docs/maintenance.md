@@ -29,4 +29,13 @@ The offline option checks local files and anchors but skips public network check
 
 Network checks can fail temporarily due to outages or rate limits; rerun before editing a working link. GitHub can disable scheduled workflows in public repositories after 60 days without repository activity. Check Actions when returning after a long break and re-enable the schedule if needed. GitHub notification settings control whether workflow failures reach you.
 
-The banner and walkthrough live in this repository. The core profile uses text, native Markdown, and a collapsible overview; it does not require a visitor counter, remote stats image, external animation, hosted demo, or analytics service to communicate your work.
+The Pixel Workshop banner, toolkit strip, link badges, and walkthrough live in this repository. The banner uses a slow, decorative SVG animation with static labels and racks. Reduced-motion preferences hide the moving packets and leave the still frame readable. The animation illustrates backend components; it is not live system status. No external animation or statistics service is required.
+
+To change the pixel art, edit the text, palette, or geometry in `scripts/build-pixel-assets.mjs`, then rebuild with:
+
+```text
+node scripts/build-pixel-assets.mjs
+node scripts/check-profile.mjs --offline
+```
+
+Commit both the generator and regenerated assets. Keep the plain-text introduction, project links, technology image descriptions, and email address readable when images are unavailable. Check the live profile in light and dark mode and at a narrow mobile width after visual changes.
