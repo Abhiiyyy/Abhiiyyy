@@ -78,11 +78,11 @@ await writeFile(new URL('pixel-workshop.svg',assets),svg(1200,372,'Abhishek Kuma
 const technologies = [ ['J','Java 21'],['S','Spring Boot'],['P','PostgreSQL'],['K','Kafka'],['R','Redis'],['D','Docker'] ];
 let strip=`<rect width="600" height="232" fill="${palette.bg}"/>`;
 technologies.forEach(([mark,label],i)=>{
-  const x=(i%3)*200+100;
-  const y=Math.floor(i/3)*112;
-  strip+=`<path d="M${x-24} ${y+19}h48v48h-48z" fill="${palette.panel}" stroke="${palette.border}" stroke-width="2"/>`;
-  strip+=pixelText(mark,x-10,y+29,4,palette.accent);
-  strip+=text(label,x,y+99,21,palette.white,'text-anchor="middle"');
+  const x=(i%2)*300;
+  const y=Math.floor(i/2)*74;
+  strip+=`<path d="M${x+22} ${y+20}h40v40h-40z" fill="${palette.panel}" stroke="${palette.border}" stroke-width="2"/>`;
+  strip+=pixelText(mark,x+32,y+26,4,palette.accent);
+  strip+=text(label,x+77,y+51,32,palette.white);
 });
 await writeFile(new URL('pixel-toolkit.svg',assets),svg(600,232,'Java 21, Spring Boot, PostgreSQL, Kafka, Redis, Docker','Primary project technologies, with custom pixel letter marks.',strip));
 
