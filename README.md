@@ -21,7 +21,7 @@ I'm **Abhishek Kumar**, a **Systems Architect at Pega Systems India**, based in 
 Open a project to explore its features, architecture, verification, and design decisions.
 
 <details open>
-<summary><a><img src="assets/project-api-midnight.svg" alt="01 · API ingestion service — Java / Backend" width="640"></a></summary>
+<summary><h2>01 · API ingestion service — Java / Backend</h2></summary>
 
 **Two external APIs. One consistent product catalog.**
 
@@ -68,7 +68,7 @@ A bounded worker queue makes overload explicit. The outbox ties event delivery t
 </details>
 
 <details>
-<summary><a><img src="assets/project-employees-midnight.svg" alt="02 · Employee Management — Full stack / CRUD" width="640"></a></summary>
+<summary><h2>02 · Employee Management — Full stack / CRUD</h2></summary>
 
 **A React interface backed by a Spring Boot employee API.**
 
