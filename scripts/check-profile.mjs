@@ -52,6 +52,7 @@ for (const file of markdown) {
   const targets = [
     ...Array.from(body(text).matchAll(/!?\[[^\]]*\]\(([^\s)]+)\)/g), match => match[1]),
     ...Array.from(body(text).matchAll(/<img\b[^>]*\bsrc=["']([^"']+)["']/gi), match => match[1]),
+    ...Array.from(body(text).matchAll(/<a\b[^>]*\bhref=["']([^"']+)["']/gi), match => match[1]),
     ...Array.from(body(text).matchAll(/\[!\[[^\]]*\]\([^)]*\)\]\(([^\s)]+)\)/g), match => match[1]),
     ...Array.from(body(text).matchAll(/<source\b[^>]*\bsrcset=["']([^"']+)["']/gi), match => match[1].split(',').map(entry => entry.trim().split(/\s+/)[0])).flat(),
   ];

@@ -18,7 +18,7 @@ I'm **Abhishek Kumar**, a **Systems Architect at Pega Systems India**, based in 
 
 Open a project to explore its features, architecture, verification, and design decisions.
 
-<details open>
+<details>
 <summary><h2>01 · API ingestion service — Java / Backend</h2></summary>
 
 **Two external APIs. One consistent product catalog.**
@@ -109,12 +109,70 @@ This is an earlier CRUD project using Java 8 and Spring Boot 2.3. It demonstrate
 
 </details>
 
-## My toolkit
+## My techstack
 
-<picture>
-  <source media="(max-width: 600px)" srcset="assets/toolkit-shared-mobile.svg">
-  <img src="assets/toolkit-shared-desktop.svg" alt="Languages: Java 21, Python. Backend: Spring Boot, Spring Security, REST APIs, Spring Data JPA. Data and messaging: PostgreSQL, Flyway, Kafka, Redis. Testing and delivery: JUnit, Testcontainers, Docker, Docker Compose, GitHub Actions. Cloud: AWS." width="800">
-</picture>
+<p>
+  <a href="#java-21" title="Java 21 — backend development and the API ingestion service."><img src="assets/techstack/java.svg" alt="Java 21" width="68" height="68" title="Java 21 — backend development and the API ingestion service."></a>
+  <a href="#spring" title="Spring — Spring Boot REST APIs, Spring Security, and Spring Data JPA."><img src="assets/techstack/spring.svg" alt="Spring" width="68" height="68" title="Spring — Spring Boot REST APIs, Spring Security, and Spring Data JPA."></a>
+  <a href="#postgresql" title="PostgreSQL — relational storage for products, jobs, and outbox events; Flyway migrations."><img src="assets/techstack/postgresql.svg" alt="PostgreSQL" width="68" height="68" title="PostgreSQL — relational storage for products, jobs, and outbox events; Flyway migrations."></a>
+  <a href="#kafka" title="Kafka — asynchronous event delivery through a transactional outbox and idempotent consumers."><img src="assets/techstack/kafka.svg" alt="Kafka" width="68" height="68" title="Kafka — asynchronous event delivery through a transactional outbox and idempotent consumers."></a>
+  <a href="#redis" title="Redis — optional catalog caching with PostgreSQL fallback."><img src="assets/techstack/redis.svg" alt="Redis" width="68" height="68" title="Redis — optional catalog caching with PostgreSQL fallback."></a>
+  <a href="#docker" title="Docker — containerized services, Docker Compose, and Testcontainers integration checks."><img src="assets/techstack/docker.svg" alt="Docker" width="68" height="68" title="Docker — containerized services, Docker Compose, and Testcontainers integration checks."></a>
+  <a href="#aws" title="AWS — cloud platform for compute, storage, and managed services."><img src="assets/techstack/aws.svg" alt="AWS" width="68" height="68" title="AWS — cloud platform for compute, storage, and managed services."></a>
+  <a href="#python" title="Python — general-purpose programming and scripting."><img src="assets/techstack/python.svg" alt="Python" width="68" height="68" title="Python — general-purpose programming and scripting."></a>
+  <a href="#react" title="React — the Employee Management project's frontend interface."><img src="assets/techstack/react.svg" alt="React" width="68" height="68" title="React — the Employee Management project's frontend interface."></a>
+  <a href="#maven" title="Maven — Java dependency management, builds, and JUnit verification."><img src="assets/techstack/maven.svg" alt="Maven" width="68" height="68" title="Maven — Java dependency management, builds, and JUnit verification."></a>
+  <a href="#github-actions" title="GitHub Actions — CI workflows, integration checks, and automated profile health checks."><img src="assets/techstack/github-actions.svg" alt="GitHub Actions" width="68" height="68" title="GitHub Actions — CI workflows, integration checks, and automated profile health checks."></a>
+</p>
+
+<details>
+<summary><strong>Techstack details</strong></summary>
+
+### Java 21
+
+The primary language for the API ingestion service. The earlier Employee Management project uses Java 8.
+
+### Spring
+
+Spring Boot organizes the backend APIs and background work. Spring Security and Spring Data JPA are part of the ingestion service stack.
+
+### PostgreSQL
+
+Persists products, job history, and outbox events in the API ingestion service. Flyway manages database migrations.
+
+### Kafka
+
+Receives events from the persisted transactional outbox. Consumer processing handles repeated deliveries.
+
+### Redis
+
+An optional catalog cache. Reads fall back to PostgreSQL when the cache is unavailable.
+
+### Docker
+
+Docker Compose runs the local stack. Testcontainers provides isolated database containers for integration checks.
+
+### AWS
+
+Cloud platform for compute, storage, networking, and managed services.
+
+### Python
+
+A general-purpose language in my toolkit, useful for scripting and automation.
+
+### React
+
+Provides the employee forms and list interface in the earlier full-stack Employee Management project.
+
+### Maven
+
+Builds the Java projects and manages dependencies. The backend verification build includes JUnit checks.
+
+### GitHub Actions
+
+Runs the ingestion service's verification workflow and this profile's link, asset, and review-date checks.
+
+</details>
 
 <details>
 <summary><strong>Next on my build list</strong></summary>
