@@ -112,18 +112,20 @@ This is an earlier CRUD project using Java 8 and Spring Boot 2.3. It demonstrate
 ## My techstack
 
 <p>
-  <a href="#java-21" title="Java 21 — backend development and the API ingestion service."><img src="assets/techstack/java.svg" alt="Java 21" width="68" height="68" title="Java 21 — backend development and the API ingestion service."></a>
-  <a href="#spring" title="Spring — Spring Boot REST APIs, Spring Security, and Spring Data JPA."><img src="assets/techstack/spring.svg" alt="Spring" width="68" height="68" title="Spring — Spring Boot REST APIs, Spring Security, and Spring Data JPA."></a>
-  <a href="#postgresql" title="PostgreSQL — relational storage for products, jobs, and outbox events; Flyway migrations."><img src="assets/techstack/postgresql.svg" alt="PostgreSQL" width="68" height="68" title="PostgreSQL — relational storage for products, jobs, and outbox events; Flyway migrations."></a>
-  <a href="#kafka" title="Kafka — asynchronous event delivery through a transactional outbox and idempotent consumers."><img src="assets/techstack/kafka.svg" alt="Kafka" width="68" height="68" title="Kafka — asynchronous event delivery through a transactional outbox and idempotent consumers."></a>
-  <a href="#redis" title="Redis — optional catalog caching with PostgreSQL fallback."><img src="assets/techstack/redis.svg" alt="Redis" width="68" height="68" title="Redis — optional catalog caching with PostgreSQL fallback."></a>
-  <a href="#docker" title="Docker — containerized services, Docker Compose, and Testcontainers integration checks."><img src="assets/techstack/docker.svg" alt="Docker" width="68" height="68" title="Docker — containerized services, Docker Compose, and Testcontainers integration checks."></a>
-  <a href="#aws" title="AWS — cloud platform for compute, storage, and managed services."><img src="assets/techstack/aws.svg" alt="AWS" width="68" height="68" title="AWS — cloud platform for compute, storage, and managed services."></a>
-  <a href="#python" title="Python — general-purpose programming and scripting."><img src="assets/techstack/python.svg" alt="Python" width="68" height="68" title="Python — general-purpose programming and scripting."></a>
-  <a href="#react" title="React — the Employee Management project's frontend interface."><img src="assets/techstack/react.svg" alt="React" width="68" height="68" title="React — the Employee Management project's frontend interface."></a>
-  <a href="#maven" title="Maven — Java dependency management, builds, and JUnit verification."><img src="assets/techstack/maven.svg" alt="Maven" width="68" height="68" title="Maven — Java dependency management, builds, and JUnit verification."></a>
-  <a href="#github-actions" title="GitHub Actions — CI workflows, integration checks, and automated profile health checks."><img src="assets/techstack/github-actions.svg" alt="GitHub Actions" width="68" height="68" title="GitHub Actions — CI workflows, integration checks, and automated profile health checks."></a>
+  <a href="#techstack-details" title="Java 21 — backend development and the API ingestion service."><img src="assets/techstack/java.svg" alt="Java 21" width="68" height="68" title="Java 21 — backend development and the API ingestion service."></a>
+  <a href="#techstack-details" title="Spring — Spring Boot REST APIs, Spring Security, and Spring Data JPA."><img src="assets/techstack/spring.svg" alt="Spring" width="68" height="68" title="Spring — Spring Boot REST APIs, Spring Security, and Spring Data JPA."></a>
+  <a href="#techstack-details" title="PostgreSQL — relational storage for products, jobs, and outbox events; Flyway migrations."><img src="assets/techstack/postgresql.svg" alt="PostgreSQL" width="68" height="68" title="PostgreSQL — relational storage for products, jobs, and outbox events; Flyway migrations."></a>
+  <a href="#techstack-details" title="Kafka — asynchronous event delivery through a transactional outbox and idempotent consumers."><img src="assets/techstack/kafka.svg" alt="Kafka" width="68" height="68" title="Kafka — asynchronous event delivery through a transactional outbox and idempotent consumers."></a>
+  <a href="#techstack-details" title="Redis — optional catalog caching with PostgreSQL fallback."><img src="assets/techstack/redis.svg" alt="Redis" width="68" height="68" title="Redis — optional catalog caching with PostgreSQL fallback."></a>
+  <a href="#techstack-details" title="Docker — containerized services, Docker Compose, and Testcontainers integration checks."><img src="assets/techstack/docker.svg" alt="Docker" width="68" height="68" title="Docker — containerized services, Docker Compose, and Testcontainers integration checks."></a>
+  <a href="#techstack-details" title="AWS — cloud platform for compute, storage, and managed services."><img src="assets/techstack/aws.svg" alt="AWS" width="68" height="68" title="AWS — cloud platform for compute, storage, and managed services."></a>
+  <a href="#techstack-details" title="Python — general-purpose programming and scripting."><img src="assets/techstack/python.svg" alt="Python" width="68" height="68" title="Python — general-purpose programming and scripting."></a>
+  <a href="#techstack-details" title="React — the Employee Management project's frontend interface."><img src="assets/techstack/react.svg" alt="React" width="68" height="68" title="React — the Employee Management project's frontend interface."></a>
+  <a href="#techstack-details" title="Maven — Java dependency management, builds, and JUnit verification."><img src="assets/techstack/maven.svg" alt="Maven" width="68" height="68" title="Maven — Java dependency management, builds, and JUnit verification."></a>
+  <a href="#techstack-details" title="GitHub Actions — CI workflows, integration checks, and automated profile health checks."><img src="assets/techstack/github-actions.svg" alt="GitHub Actions" width="68" height="68" title="GitHub Actions — CI workflows, integration checks, and automated profile health checks."></a>
 </p>
+
+<a name="techstack-details"></a>
 
 <details>
 <summary><strong>Techstack details</strong></summary>

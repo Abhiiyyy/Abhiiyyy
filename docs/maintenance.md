@@ -40,7 +40,7 @@ node scripts/check-profile.mjs --offline
 
 Commit both the generator and regenerated assets. Keep the plain-text introduction, project links, and technology image descriptions readable when images are unavailable. Keep contact behind the Send a hello link, without a printed email address. Check the live profile in light and dark mode and at a narrow mobile width after visual changes.
 
-The techstack uses large, individually titled SVG icons stored under `assets/techstack/`. Their browser hover labels identify each technology and describe its role. Each icon links to a matching heading inside the profile's Techstack details section, so visitors can access the same information without hover. Keep icon titles, alt text, link targets, and detail headings consistent. The [Skill Icons license](../assets/techstack/LICENSE.txt) is included with these vendored assets.
+The techstack uses large, individually titled SVG icons stored under `assets/techstack/`. Their browser hover labels identify each technology and describe its role. Each icon links to the profile's Techstack details toggle, where visitors can expand the descriptions without hover. Keep icon titles, alt text, link targets, and detail headings consistent. The [Skill Icons license](../assets/techstack/LICENSE.txt) is included with these vendored assets.
 
 Project Explore and Architecture badges belong inside their respective expandable sections. The Send a hello badge belongs in the bottom contact section; do not print the email address beside it. Keep every project `<details>` element without `open`; all projects start collapsed.
 

@@ -28,6 +28,7 @@ function anchors(text) {
     counts.set(slug, index + 1);
     result.add(index ? `${slug}-${index}` : slug);
   }
+  for (const match of body(text).matchAll(/<a\b[^>]*\b(?:id|name)=["']([^"']+)["']/gi)) result.add(match[1]);
   return result;
 }
 
