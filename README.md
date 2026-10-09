@@ -111,13 +111,10 @@ This is an earlier CRUD project using Java 8 and Spring Boot 2.3. It demonstrate
 
 ## My toolkit
 
-![Languages: Java 21, Python](assets/toolkit-languages-pixel.svg)
-
-![Backend: Spring Boot, Spring Security, REST APIs, Spring Data JPA](assets/toolkit-backend-pixel.svg)
-
-![Data and messaging: PostgreSQL, Flyway, Kafka, Redis](assets/toolkit-data-pixel.svg)
-
-![Testing and delivery: JUnit, Testcontainers, Docker, Docker Compose, GitHub Actions](assets/toolkit-delivery-pixel.svg)
+<picture>
+  <source media="(max-width: 600px)" srcset="assets/toolkit-shared-mobile.svg">
+  <img src="assets/toolkit-shared-desktop.svg" alt="Languages: Java 21, Python. Backend: Spring Boot, Spring Security, REST APIs, Spring Data JPA. Data and messaging: PostgreSQL, Flyway, Kafka, Redis. Testing and delivery: JUnit, Testcontainers, Docker, Docker Compose, GitHub Actions. Cloud: AWS." width="800">
+</picture>
 
 <details>
 <summary><strong>Next on my build list</strong></summary>
@@ -131,5 +128,3 @@ Production identity and TLS, distributed worker coordination, request budgets, r
 Interested in Java / Spring Boot backend work, APIs, or reliable data pipelines?
 
 [![Send a hello](assets/send-hello-midnight.svg)](mailto:abhiiyyywork7@gmail.com)
-
-**[abhiiyyywork7@gmail.com](mailto:abhiiyyywork7@gmail.com)**

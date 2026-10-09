@@ -3,31 +3,43 @@ import { readFile, writeFile } from 'node:fs/promises';
 const assets = new URL('../assets/', import.meta.url);
 const palette = { bg:'#111c32', panel:'#182b48', border:'#3d608e', accent:'#90b8ff', text:'#edf4ff' };
 const groups = [
-  { file:'toolkit-languages-pixel.svg', icon:'toolkit-languages-midnight.svg', title:'Languages', lines:['Java 21 · Python'] },
-  { file:'toolkit-backend-pixel.svg', icon:'toolkit-backend-midnight.svg', title:'Backend', lines:['Spring Boot · Spring Security','REST APIs · Spring Data JPA'] },
-  { file:'toolkit-data-pixel.svg', icon:'toolkit-data-midnight.svg', title:'Data & messaging', lines:['PostgreSQL · Flyway','Kafka · Redis'] },
-  { file:'toolkit-delivery-pixel.svg', icon:'toolkit-testing-midnight.svg', title:'Testing & delivery', lines:['JUnit · Testcontainers','Docker · Docker Compose','GitHub Actions'] },
+  { icon:'toolkit-languages-midnight.svg', title:'Languages', desktop:['Java 21 · Python'], mobile:['Java 21 · Python'] },
+  { icon:'toolkit-backend-midnight.svg', title:'Backend', desktop:['Spring Boot · Spring Security','REST APIs · Spring Data JPA'], mobile:['Spring Boot · Spring Security','REST APIs · Spring Data JPA'] },
+  { icon:'toolkit-data-midnight.svg', title:'Data & messaging', desktop:['PostgreSQL · Flyway · Kafka · Redis'], mobile:['PostgreSQL · Flyway','Kafka · Redis'] },
+  { icon:'toolkit-testing-midnight.svg', title:'Testing & delivery', desktop:['JUnit · Testcontainers · Docker','Docker Compose · GitHub Actions'], mobile:['JUnit · Testcontainers','Docker · Docker Compose','GitHub Actions'] },
+  { icon:'toolkit-cloud-midnight.svg', title:'Cloud', desktop:['AWS'], mobile:['AWS'] },
 ];
 const escape = value => value.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
-
+let license = '';
 for (const group of groups) {
   const source = await readFile(new URL(group.icon, assets),'utf8');
-  const license = source.match(/<!--[\s\S]*?-->/)?.[0];
-  if (!license) throw new Error(`Icon license comment missing: ${group.icon}`);
-  const icon = source.slice(source.indexOf('-->')+3,source.lastIndexOf('</svg>')).trim();
-  const height = 104 + (group.lines.length-1)*30;
-  const description = `${group.title}: ${group.lines.join(' · ')}`;
-  const body = `
-  <defs><pattern id="pixels" width="16" height="16" patternUnits="userSpaceOnUse"><rect x="12" y="12" width="2" height="2" fill="${palette.panel}"/></pattern></defs>
-  <path d="M8 0H392V8H400V${height-8}H392V${height}H8V${height-8}H0V8H8Z" fill="${palette.bg}"/>
-  <path d="M8 0H392V8H400V${height-8}H392V${height}H8V${height-8}H0V8H8Z" fill="url(#pixels)"/>
-  <path d="M8 1H391V9H399V${height-9}H391V${height-1}H9V${height-9}H1V9H8Z" fill="none" stroke="${palette.border}" stroke-width="2"/>
-  <rect x="16" y="16" width="4" height="4" fill="${palette.accent}"/>
-  <g transform="translate(28 22)" fill="none" stroke="${palette.accent}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${icon}</g>
-  <text x="66" y="43" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700" fill="${palette.accent}">${escape(group.title)}</text>
-  ${group.lines.map((line,index)=>`<text x="28" y="${77+index*30}" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="${palette.text}">${escape(line)}</text>`).join('\n  ')}
-  <rect x="380" y="${height-20}" width="4" height="4" fill="${palette.border}"/>`;
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="${height}" viewBox="0 0 400 ${height}" role="img" aria-labelledby="title desc"><title id="title">${escape(group.title)}</title><desc id="desc">${escape(description)}</desc>${license}${body}</svg>\n`;
-  await writeFile(new URL(group.file,assets),svg);
+  const comment = source.match(/<!--[\s\S]*?-->/)?.[0];
+  if (!comment) throw new Error(`Icon license comment missing: ${group.icon}`);
+  license ||= comment;
+  group.paths = source.slice(source.indexOf('-->')+3,source.lastIndexOf('</svg>')).trim();
 }
-console.log('Built four readable Midnight Blue pixel toolkit tiles.');
+for (const mode of ['desktop','mobile']) {
+  const width = mode === 'desktop' ? 800 : 400;
+  const rows = groups.map(group => ({ ...group, lines:group[mode], height:78+group[mode].length*28 }));
+  const height = 40 + rows.reduce((sum,row)=>sum+row.height,0);
+  const outline = `M8 0H${width-8}V8H${width}V${height-8}H${width-8}V${height}H8V${height-8}H0V8H8Z`;
+  let body = `<defs><pattern id="pixels" width="18" height="18" patternUnits="userSpaceOnUse"><rect x="13" y="13" width="2" height="2" fill="${palette.panel}"/></pattern></defs>
+<path d="${outline}" fill="${palette.bg}"/>
+<path d="${outline}" fill="url(#pixels)" stroke="${palette.border}" stroke-width="2"/>
+<rect x="18" y="18" width="4" height="4" fill="${palette.accent}"/>
+<rect x="${width-22}" y="${height-22}" width="4" height="4" fill="${palette.border}"/>`;
+  let top = 24;
+  rows.forEach((row,index)=>{
+    if (index) body += `<path d="M28 ${top-12}H${width-28}" stroke="${palette.border}" stroke-width="1"/>`;
+    body += `<g transform="translate(28 ${top+1})" fill="none" stroke="${palette.accent}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${row.paths}</g>
+<text x="66" y="${top+23}" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700" fill="${palette.accent}">${escape(row.title)}</text>`;
+    row.lines.forEach((line,index)=>{
+      body += `<text x="66" y="${top+58+index*28}" font-family="Segoe UI, Arial, sans-serif" font-size="22" fill="${palette.text}">${escape(line)}</text>`;
+    });
+    top += row.height;
+  });
+  const description = groups.map(group=>`${group.title}: ${group.desktop.join(' · ')}`).join('; ');
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="title desc"><title id="title">My toolkit — Midnight Blue</title><desc id="desc">${escape(description)}</desc>${license}${body}</svg>\n`;
+  await writeFile(new URL(`toolkit-shared-${mode}.svg`,assets),svg);
+}
+console.log('Built shared-background toolkit with Languages, Backend, Data, Testing, and AWS Cloud.');
